@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mayor o Menor de Edad</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si una persona es mayor o menor de edad
+        Entradas: 
+            edad: Número entero que representa la edad ingresada por el usuario
+        Salidas: 
+            Mensaje indicando si la persona es mayor de edad, menor de edad o si la edad es imposible
+        Proceso: 
+            El programa solicita la edad de una persona.  
+            - Si la edad está entre 18 y 122 (inclusive), se considera mayor de edad.  
+            - Si la edad está entre 1 y 17, se considera menor de edad.  
+            - En cualquier otro caso, se indica que la edad es imposible.  
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== ¿Mayor de edad? =====</h3>
+
+    <p>Indica tu edad:</p>
+    <input type="number" id="edadInput" placeholder="Escribe tu edad">
+    <button onclick="verificarEdad()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que determina si una persona es mayor o menor de edad
+        function verificarEdad() {
+            // Leer la entrada del usuario
+            let edad = parseInt(document.getElementById("edadInput").value);
+            let mensaje = "";
+
+            // Proceso: evaluar la edad
+            if (edad >= 18 && edad <= 122) {
+                mensaje = "Eres mayor de edad";
+            } else if (edad > 0 && edad < 18) {
+                mensaje = "Eres menor de edad";
+            } else {
+                mensaje = "Edad imposible";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

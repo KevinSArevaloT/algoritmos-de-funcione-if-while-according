@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Aprobado o Reprobado</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si un estudiante aprobó o reprobó
+        Entradas: 
+            nota: Número real que representa la calificación del estudiante
+        Salidas: 
+            Mensaje indicando si el estudiante aprobó o reprobó
+        Proceso: 
+            El programa solicita una nota, verifica si es mayor o igual a 60
+            para indicar que el estudiante aprobó. En caso contrario, muestra
+            que reprobó. Finalmente imprime un mensaje de cierre.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== Aprobó o Reprobó ========</h3>
+
+    <p>Indique su nota:</p>
+    <input type="number" id="notaInput" placeholder="Escribe tu nota">
+    <button onclick="verificarNota()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que determina si el estudiante aprobó o reprobó
+        function verificarNota() {
+            // Leer la entrada del usuario
+            let nota = parseFloat(document.getElementById("notaInput").value);
+            let mensaje = "";
+
+            // Proceso: verificar si la nota es mayor o igual a 60
+            if (nota >= 60) {
+                mensaje = "Aprobaste";
+            } else {
+                mensaje = "Reprobaste";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

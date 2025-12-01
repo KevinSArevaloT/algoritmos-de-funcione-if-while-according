@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de alerta según nivel de emergencia</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar el tipo de alerta según el nivel de emergencia
+        Entradas:
+            nivel: número entero entre 1 y 100 que indica el nivel de emergencia
+        Salidas:
+            Mensaje indicando el tipo de alerta
+        Proceso:
+            1. Solicita al usuario ingresar un nivel de emergencia entre 1 y 100.
+            2. Clasifica el nivel en una categoría numérica:
+                - 1 a 20: Alerta verde (bajo riesgo)
+                - 21 a 40: Alerta amarilla (riesgo moderado)
+                - 41 a 60: Alerta naranja (riesgo alto)
+                - 61 a 80: Alerta roja (riesgo muy alto)
+                - 81 a 100: Alerta crítica (máximo riesgo)
+            3. Utiliza SEGUN para asignar el mensaje de alerta correspondiente.
+            4. Si el nivel está fuera del rango válido, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de alerta según nivel de emergencia====="</h3>
+
+    <label for="nivelInput">Ingrese el nivel de emergencia (1-100):</label>
+    <input type="number" id="nivelInput" min="1" max="100">
+    <button onclick="determinarAlerta()">Determinar alerta</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function determinarAlerta() {
+            let nivel = parseInt(document.getElementById("nivelInput").value);
+            let categoria = 0;
+            let alerta = "no registrada";
+
+            if (nivel >= 1 && nivel <= 20) {
+                categoria = 1;
+            } else if (nivel >= 21 && nivel <= 40) {
+                categoria = 2;
+            } else if (nivel >= 41 && nivel <= 60) {
+                categoria = 3;
+            } else if (nivel >= 61 && nivel <= 80) {
+                categoria = 4;
+            } else if (nivel >= 81 && nivel <= 100) {
+                categoria = 5;
+            }
+
+            switch(categoria) {
+                case 1:
+                    alerta = "Alerta verde (bajo riesgo)";
+                    break;
+                case 2:
+                    alerta = "Alerta amarilla (riesgo moderado)";
+                    break;
+                case 3:
+                    alerta = "Alerta naranja (riesgo alto)";
+                    break;
+                case 4:
+                    alerta = "Alerta roja (riesgo muy alto)";
+                    break;
+                case 5:
+                    alerta = "Alerta crítica (máximo riesgo)";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (alerta !== "no registrada") ? 
+                `Con un nivel de emergencia de ${nivel}, el tipo de alerta es: ${alerta}` :
+                "Nivel de emergencia fuera de rango";
+        }
+    </script>
+</body>
+</html>

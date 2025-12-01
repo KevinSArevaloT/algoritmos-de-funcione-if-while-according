@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Identificador de Transporte</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para identificar un tipo de transporte según un número
+        Entradas: 
+            transporte: Número entero ingresado por el usuario (rango 1 - 5)
+        Salidas: 
+            Mensaje indicando el tipo de transporte correspondiente o si el número no es válido
+        Proceso: 
+            El programa solicita un número entre 1 y 5.  
+            - Si el número es 1, corresponde a "bus".  
+            - Si es 2, corresponde a "auto".  
+            - Si es 3, corresponde a "bicicleta".  
+            - Si es 4, corresponde a "moto".  
+            - Si es 5, corresponde a "metro".  
+            - Si el número no está en el rango, indica "número no válido".  
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Identificador de Transporte =====</h3>
+
+    <p>Indica un número referente al tipo de transporte (1 - 5):</p>
+    <input type="number" id="transporteInput" placeholder="Escribe un número">
+    <button onclick="identificarTransporte()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que identifica el tipo de transporte según el número
+        function identificarTransporte() {
+            let transporte = parseInt(document.getElementById("transporteInput").value);
+            let mensaje = "";
+
+            // Proceso: usar switch para determinar el transporte
+            switch(transporte) {
+                case 1:
+                    mensaje = "El bus es referente a " + transporte;
+                    break;
+                case 2:
+                    mensaje = "El auto es referente a " + transporte;
+                    break;
+                case 3:
+                    mensaje = "La bicicleta es referente a " + transporte;
+                    break;
+                case 4:
+                    mensaje = "La moto es referente a " + transporte;
+                    break;
+                case 5:
+                    mensaje = "El metro es referente a " + transporte;
+                    break;
+                default:
+                    mensaje = "Número no válido";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

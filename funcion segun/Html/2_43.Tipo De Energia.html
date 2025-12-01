@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Energía</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para seleccionar un tipo de energía según su clasificación
+        Entradas:
+            clasificacion: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje indicando el tipo de energía seleccionado
+        Proceso:
+            1. Muestra un menú con opciones de energía numeradas del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente a la clasificación.
+            3. Según el número ingresado, asigna el tipo de energía correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de energía====="</h3>
+
+    <label for="clasificacionInput">Ingrese la clasificación de la energía:</label>
+    <input type="number" id="clasificacionInput" min="1" max="5">
+    <button onclick="seleccionarEnergia()">Seleccionar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function seleccionarEnergia() {
+            let clasificacion = parseInt(document.getElementById("clasificacionInput").value);
+            let energia = "no registrada";
+
+            switch(clasificacion) {
+                case 1: energia = "Energía solar"; break;
+                case 2: energia = "Energía eólica"; break;
+                case 3: energia = "Energía hidráulica"; break;
+                case 4: energia = "Energía geotérmica"; break;
+                case 5: energia = "Energía nuclear"; break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (energia !== "no registrada") ? 
+                "La energía seleccionada es: " + energia :
+                "Clasificación no registrada";
+        }
+    </script>
+</body>
+</html>

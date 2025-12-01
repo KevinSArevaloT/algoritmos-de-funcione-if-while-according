@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Idioma por País</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para mostrar el idioma de un país
+        Entradas:
+            pais: nombre del país ingresado por el usuario
+        Salidas:
+            Mensaje en pantalla indicando el idioma predeterminado del país
+        Proceso: 
+            1. Solicita al usuario ingresar el nombre de un país.
+            2. Según el país ingresado, asigna su idioma predeterminado.
+            3. Si el país no está registrado, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Idioma de un país =====</h3>
+
+    <p>Ingrese un país:</p>
+    <input type="text" id="paisInput" placeholder="Ej: Colombia">
+    <button onclick="idiomaPorPais()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        function idiomaPorPais() {
+            let pais = document.getElementById("paisInput").value.trim();
+            let idioma = "";
+
+            // Determinar el idioma según el país
+            switch(pais) {
+                case "Colombia":
+                case "España":
+                case "Argentina":
+                    idioma = "Español";
+                    break;
+                case "Estados Unidos":
+                    idioma = "Inglés";
+                    break;
+                case "Canada":
+                    idioma = "Inglés y Francés";
+                    break;
+                case "Francia":
+                    idioma = "Francés";
+                    break;
+                case "Alemania":
+                    idioma = "Alemán";
+                    break;
+                case "Brasil":
+                    idioma = "Portugués";
+                    break;
+                case "Italia":
+                    idioma = "Italiano";
+                    break;
+                case "Japon":
+                    idioma = "Japonés";
+                    break;
+                default:
+                    idioma = "no registrado";
+            }
+
+            // Mostrar resultado
+            let mensaje = "";
+            if(idioma !== "no registrado") {
+                mensaje = "El idioma predeterminado de " + pais + " es: " + idioma;
+            } else {
+                mensaje = "País no registrado";
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

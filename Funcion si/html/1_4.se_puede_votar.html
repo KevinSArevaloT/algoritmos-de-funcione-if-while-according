@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Votaciones</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si una persona puede votar
+        Entradas: 
+            edad: Número entero que representa la edad de la persona
+            nacionalidad: Texto que representa la nacionalidad de la persona
+        Salidas: 
+            Mensaje indicando si la persona puede votar o no
+        Proceso: 
+            El programa solicita la edad y nacionalidad de la persona. 
+            Si la edad es mayor o igual a 18, se consulta la nacionalidad. 
+            Si es "colombiano", se permite votar; de lo contrario, no puede votar.
+            Si la edad es menor a 18, automáticamente no puede votar.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== Votaciones ========</h3>
+
+    <p>Indique su edad:</p>
+    <input type="number" id="edadInput" placeholder="Escribe tu edad">
+    <button onclick="verificarVoto()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que determina si la persona puede votar
+        function verificarVoto() {
+            // Leer la entrada de edad
+            let edad = parseInt(document.getElementById("edadInput").value);
+            let mensaje = "";
+
+            // Proceso: verificar si la persona cumple los requisitos para votar
+            if (edad >= 18) {
+                let nacionalidad = prompt("¿Cuál es tu nacionalidad?").toLowerCase();
+                if (nacionalidad === "colombiano") {
+                    mensaje = "Puedes votar";
+                } else {
+                    mensaje = "No puedes votar";
+                }
+            } else {
+                mensaje = "No puedes votar";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lectura de Calificaciones</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para leer calificaciones
+        Entradas: calificacion (número entero entre 0 y 100)
+        Salidas: Muestra cada calificación ingresada hasta que se ingrese un número mayor a 100
+        Proceso:
+            1. Solicita al usuario ingresar calificaciones.
+            2. Mientras la calificación sea menor o igual a 100, la registra y pide otra.
+            3. Cuando se ingresa un número mayor a 100, finaliza.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Lectura de calificaciones=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        const resultado = document.getElementById("resultado");
+        let calificacion = parseInt(prompt("Ingrese una calificación (0 a 100, otro número mayor para terminar):"));
+
+        while(calificacion <= 100 && !isNaN(calificacion)){
+            let p = document.createElement("p");
+            p.textContent = "Calificación registrada: " + calificacion;
+            resultado.appendChild(p);
+
+            calificacion = parseInt(prompt("Ingrese otra calificación (mayor a 100 para salir):"));
+        }
+
+        let pFinal = document.createElement("p");
+        pFinal.textContent = "Se ingresó un número mayor a 100.";
+        resultado.appendChild(pFinal);
+    </script>
+</body>
+</html>

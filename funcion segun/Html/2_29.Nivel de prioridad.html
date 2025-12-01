@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel de Prioridad</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar el nivel de prioridad según un número
+        Entradas:
+            num: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje en pantalla indicando el nivel de prioridad correspondiente
+        Proceso: 
+            1. Solicita al usuario ingresar un número del 1 al 5.
+            2. Según el número ingresado, asigna un nivel de prioridad.
+            3. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Nivel de prioridad =====</h3>
+
+    <p>Ingrese un número del 1 al 5 para saber la prioridad:</p>
+    <input type="number" id="numInput" min="1" max="5">
+    <button onclick="nivelDePrioridad()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        function nivelDePrioridad() {
+            let num = parseInt(document.getElementById("numInput").value);
+            let prioridad = "";
+
+            // Asignar prioridad según el número
+            switch(num) {
+                case 1:
+                    prioridad = "Muy baja";
+                    break;
+                case 2:
+                    prioridad = "Baja";
+                    break;
+                case 3:
+                    prioridad = "Media";
+                    break;
+                case 4:
+                    prioridad = "Alta";
+                    break;
+                case 5:
+                    prioridad = "Muy alta";
+                    break;
+                default:
+                    prioridad = "Número inválido";
+            }
+
+            // Mostrar resultado
+            let mensaje = "";
+            if(prioridad !== "Número inválido") {
+                mensaje = "El nivel de prioridad " + num + " es: " + prioridad;
+            } else {
+                mensaje = prioridad;
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

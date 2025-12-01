@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplicación por Sumas Sucesivas</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para multiplicar dos números usando sumas sucesivas
+        Entradas: a, b (números enteros ingresados por el usuario)
+        Salidas: Resultado de a x b calculado mediante sumas sucesivas
+        Proceso:
+            1. Solicita al usuario ingresar los números a y b.
+            2. Inicializa resultado y contador en 0.
+            3. Utiliza un bucle para sumar 'a' a resultado 'b' veces.
+            4. Muestra el resultado de la multiplicación.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Multiplicación por sumas sucesivas=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let a = parseInt(prompt("Ingrese el primer número (a):"));
+        let b = parseInt(prompt("Ingrese el segundo número (b):"));
+
+        if(!isNaN(a) && !isNaN(b) && b >= 0){
+            let resultado = 0;
+            let contador = 0;
+
+            while(contador < b){
+                resultado += a;
+                contador++;
+            }
+
+            document.getElementById("resultado").textContent = a + " x " + b + " = " + resultado;
+        } else {
+            document.getElementById("resultado").textContent = "Entrada no válida. Ambos números deben ser enteros y b >= 0.";
+        }
+    </script>
+</body>
+</html>

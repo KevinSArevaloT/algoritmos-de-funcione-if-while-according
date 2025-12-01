@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperatura de Congelación</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si una temperatura es de congelación
+        Entradas: 
+            a: Número real que representa la temperatura en grados Celsius (°C)
+        Salidas: 
+            Mensaje indicando si la temperatura es adecuada para congelación o no
+        Proceso: 
+            El programa solicita una temperatura en °C. 
+            - Si la temperatura es menor o igual a 0°C, se considera adecuada para congelación.  
+            - Si la temperatura es mayor a 0°C, se indica que no es adecuada para congelación.  
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== ¿Temperatura de Congelación? ========</h3>
+
+    <p>Indica una temperatura (°C):</p>
+    <input type="number" id="tempInput" placeholder="Escribe la temperatura">
+    <button onclick="verificarTemperatura()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que verifica si la temperatura es adecuada para congelación
+        function verificarTemperatura() {
+            // Leer la entrada del usuario
+            let a = parseFloat(document.getElementById("tempInput").value);
+            let mensaje = "";
+
+            // Proceso: evaluar si la temperatura es adecuada para congelación
+            if (a <= 0) {
+                mensaje = a + "°C es adecuada para congelación";
+            } else {
+                mensaje = a + "°C no es adecuada para congelación";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

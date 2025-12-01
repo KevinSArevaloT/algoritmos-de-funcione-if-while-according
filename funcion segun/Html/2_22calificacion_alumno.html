@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calificación del Alumno</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para calificar a un alumno según los puntos obtenidos
+        Entradas:
+            puntos: número real que representa los puntos correctos obtenidos por el alumno (1-5)
+        Salidas:
+            Mensaje en pantalla indicando la calificación correspondiente
+        Proceso: 
+            1. Solicita al usuario ingresar los puntos correctos del alumno.
+            2. Según el valor ingresado, muestra la calificación correspondiente.
+            3. Si el valor está fuera del rango 1-5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Sistema de Calificación =====</h3>
+
+    <p>¿Cuántos puntos correctos realizó el alumno? (1-5):</p>
+    <input type="number" id="puntosInput" placeholder="Escribe un número entre 1 y 5">
+    <button onclick="calificarAlumno()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que determina la calificación del alumno según los puntos
+        function calificarAlumno() {
+            let puntos = parseFloat(document.getElementById("puntosInput").value);
+            let mensaje = "";
+
+            // Proceso: usar switch para determinar la calificación
+            switch(puntos) {
+                case 1:
+                    mensaje = "Insuficiente: 1";
+                    break;
+                case 2:
+                    mensaje = "Bajo: 2";
+                    break;
+                case 3:
+                    mensaje = "Básico: 3";
+                    break;
+                case 4:
+                    mensaje = "Alto: 4";
+                    break;
+                case 5:
+                    mensaje = "Superior: 5";
+                    break;
+                default:
+                    mensaje = "Puntos fuera de rango";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

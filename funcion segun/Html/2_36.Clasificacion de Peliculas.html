@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificación de Película</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar la clasificación de una película según su código de edad
+        Entradas:
+            codigo: número entero ingresado por el usuario (1-5) que representa la clasificación
+        Salidas:
+            Mensaje indicando la clasificación de la película
+        Proceso:
+            1. Muestra un menú con los códigos de clasificación numerados del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente al código de la película.
+            3. Según el número ingresado, asigna la clasificación correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Clasificación de película====="</h3>
+
+    <label for="codigoInput">Ingrese el código de edad de la película (1-5):</label>
+    <input type="number" id="codigoInput" min="1" max="5">
+    <button onclick="mostrarClasificacion()">Mostrar Clasificación</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function mostrarClasificacion() {
+            let codigo = parseInt(document.getElementById("codigoInput").value);
+            let clasificacion = "no registrada";
+
+            switch(codigo) {
+                case 1:
+                    clasificacion = "A (Todo público)";
+                    break;
+                case 2:
+                    clasificacion = "B (Mayores de 12 años)";
+                    break;
+                case 3:
+                    clasificacion = "B15 (Mayores de 15 años)";
+                    break;
+                case 4:
+                    clasificacion = "C (Mayores de 18 años)";
+                    break;
+                case 5:
+                    clasificacion = "D (Contenido extremo o restringido)";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (clasificacion !== "no registrada") ? 
+                "La clasificación de la película es: " + clasificacion : 
+                "Código no registrado";
+        }
+    </script>
+</body>
+</html>

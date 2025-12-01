@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Identificador de Clima</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para identificar el tipo de clima según un código
+        Entradas:
+            codigo: carácter que representa el tipo de clima (A-E)
+        Salidas:
+            Mensaje en pantalla indicando el tipo de clima correspondiente
+        Proceso: 
+            1. Solicita al usuario ingresar un código de clima.
+            2. Según el código ingresado, muestra el tipo de clima correspondiente.
+            3. Si el código no está entre A y E, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Identificador de Clima =====</h3>
+
+    <p>Indica el código proporcionado para saber el clima (A, B, C, D, E):</p>
+    <input type="text" id="codigoInput" maxlength="1" placeholder="Escribe A, B, C, D o E">
+    <button onclick="identificarClima()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que identifica el clima según el código ingresado
+        function identificarClima() {
+            let codigo = document.getElementById("codigoInput").value.toUpperCase();
+            let mensaje = "";
+
+            // Proceso: usar switch para determinar el tipo de clima
+            switch(codigo) {
+                case "A":
+                    mensaje = "Tropical";
+                    break;
+                case "B":
+                    mensaje = "Templado";
+                    break;
+                case "C":
+                    mensaje = "Polar";
+                    break;
+                case "D":
+                    mensaje = "Árido";
+                    break;
+                case "E":
+                    mensaje = "Medioterrano";
+                    break;
+                default:
+                    mensaje = "Código inválido";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

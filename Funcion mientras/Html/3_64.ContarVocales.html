@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Vocales</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para contar el número de vocales en una palabra
+        Entradas: palabra ingresada por el usuario
+        Salidas: cantidad de vocales presentes
+        Proceso:
+            1. Solicita al usuario ingresar una palabra.
+            2. Inicializa un contador en 0.
+            3. Recorre cada letra de la palabra usando un bucle WHILE.
+            4. Comprueba si la letra es una vocal (a, e, i, o, u).
+            5. Si es vocal, incrementa el contador.
+            6. Muestra el total de vocales encontradas.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Contar vocales en una palabra=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        // Paso 1: Solicitar palabra al usuario
+        const palabra = prompt("Ingrese una palabra:");
+
+        // Paso 2: Inicializar contador
+        let contador = 0;
+
+        // Paso 3: Inicializar índice para recorrer la palabra
+        let i = 0;
+
+        // Paso 4: Recorrer cada letra de la palabra
+        while (i < palabra.length) {
+            let letra = palabra[i].toLowerCase(); // Convertir a minúscula
+
+            // Paso 5: Verificar si la letra es vocal
+            if (letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u") {
+                contador++; // Incrementar contador
+            }
+
+            i++; // Avanzar al siguiente carácter
+        }
+
+        // Paso 6: Mostrar resultado
+        document.getElementById("resultado").innerHTML = 
+            "La palabra '" + palabra + "' tiene " + contador + " vocal(es).";
+    </script>
+</body>
+</html>

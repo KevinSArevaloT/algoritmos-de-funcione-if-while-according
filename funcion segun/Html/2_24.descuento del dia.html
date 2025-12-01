@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Descuentos por Día</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para mostrar descuentos según el día de la semana
+        Entradas:
+            dia: número entero que representa el día de la semana (1-7)
+        Salidas:
+            Mensaje en pantalla indicando el descuento correspondiente al día
+        Proceso: 
+            1. Solicita al usuario ingresar un número que represente el día de la semana.
+            2. Según el día ingresado, muestra el descuento correspondiente.
+            3. Si el número no está entre 1 y 7, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Descuento del Día =====</h3>
+
+    <p>Indica el día para saber el descuento (1-7):</p>
+    <input type="number" id="diaInput" placeholder="Escribe un número del 1 al 7">
+    <button onclick="descuentoDia()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que muestra el descuento según el día de la semana
+        function descuentoDia() {
+            let dia = parseInt(document.getElementById("diaInput").value);
+            let mensaje = "";
+
+            // Proceso: usar switch para determinar el descuento
+            switch(dia) {
+                case 1:
+                    mensaje = "20% de descuento en productos de limpieza";
+                    break;
+                case 2:
+                    mensaje = "15% de descuento en ropa y calzado";
+                    break;
+                case 3:
+                    mensaje = "10% de descuento en electrodomésticos pequeños";
+                    break;
+                case 4:
+                    mensaje = "25% de descuento en juguetes y artículos infantiles";
+                    break;
+                case 5:
+                    mensaje = "30% de descuento en tecnología";
+                    break;
+                case 6:
+                    mensaje = "2x1 en snacks y bebidas";
+                    break;
+                case 7:
+                    mensaje = "40% de descuento en decoración para el hogar";
+                    break;
+                default:
+                    mensaje = "Día no válido";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Usuario</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar el tipo de usuario según su ID
+        Entradas:
+            tipo: número entero que representa el ID de usuario (1-4, 5 para salir)
+        Salidas:
+            Mensaje en pantalla indicando el tipo de acceso del usuario o salida
+        Proceso: 
+            1. Solicita al usuario ingresar su ID.
+            2. Según el ID ingresado, muestra el tipo de acceso correspondiente.
+            3. Si el ID es 5, muestra un mensaje de salida.
+            4. Si el ID no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Ingreso de Usuario =====</h3>
+
+    <p>Ingrese su número ID de usuario asignado (1-4):</p>
+    <p>(5 para salir)</p>
+    <input type="number" id="tipoInput" placeholder="Escribe un número del 1 al 5">
+    <button onclick="tipoUsuario()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que determina el tipo de usuario según el ID
+        function tipoUsuario() {
+            let tipo = parseInt(document.getElementById("tipoInput").value);
+            let mensaje = "";
+
+            // Proceso: usar switch para determinar el tipo de acceso
+            switch(tipo) {
+                case 1:
+                    mensaje = "Acceso como admin";
+                    break;
+                case 2:
+                    mensaje = "Acceso como invitado";
+                    break;
+                case 3:
+                    mensaje = "Acceso como cliente";
+                    break;
+                case 4:
+                    mensaje = "Acceso como vendedor";
+                    break;
+                case 5:
+                    mensaje = "Saliendo";
+                    break;
+                default:
+                    mensaje = "ID no reconocida";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>
+    

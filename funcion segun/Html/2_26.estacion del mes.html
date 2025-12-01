@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estación del Mes</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar la estación del año según el mes
+        Entradas:
+            mes: número entero que representa el mes del año (1-12)
+        Salidas:
+            Mensaje en pantalla indicando la estación correspondiente al mes
+        Proceso: 
+            1. Solicita al usuario ingresar un número que represente el mes.
+            2. Según el mes ingresado, asigna la estación correspondiente (Verano o Invierno).
+            3. Si el número no está entre 1 y 12, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Estación del Mes =====</h3>
+
+    <p>Ingrese el número del mes para saber la estación (1-12):</p>
+    <input type="number" id="mesInput" min="1" max="12" placeholder="1-12">
+    <button onclick="estacionMes()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        function estacionMes() {
+            let mes = parseInt(document.getElementById("mesInput").value);
+            let estacion = "";
+            let mensaje = "";
+
+            // Determinar la estación según el mes
+            switch(mes) {
+                case 1:
+                case 2:
+                case 3:
+                case 7:
+                case 8:
+                case 12:
+                    estacion = "Verano";
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                case 9:
+                case 10:
+                case 11:
+                    estacion = "Invierno";
+                    break;
+                default:
+                    mensaje = mes + " es un mes inválido";
+            }
+
+            // Mostrar el resultado
+            if(mes >= 1 && mes <= 12) {
+                mensaje = "La estación del mes " + mes + " es " + estacion;
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

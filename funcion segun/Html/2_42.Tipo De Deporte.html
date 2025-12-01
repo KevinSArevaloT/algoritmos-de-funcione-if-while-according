@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Deporte</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para identificar el tipo de deporte según la cantidad de jugadores
+        Entradas:
+            jugadores: número entero ingresado por el usuario que indica la cantidad de jugadores
+        Salidas:
+            Mensaje indicando el deporte correspondiente
+        Proceso:
+            1. Muestra un menú con opciones de deportes y su cantidad de jugadores.
+            2. Solicita al usuario ingresar la cantidad de jugadores.
+            3. Según el número ingresado, asigna el deporte correspondiente.
+            4. Si el número no coincide con los valores válidos, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de deporte====="</h3>
+
+    <label for="jugadoresInput">Ingrese la cantidad de jugadores:</label>
+    <input type="number" id="jugadoresInput" min="1">
+    <button onclick="seleccionarDeporte()">Seleccionar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function seleccionarDeporte() {
+            let jugadores = parseInt(document.getElementById("jugadoresInput").value);
+            let deporte = "no registrado";
+
+            switch(jugadores) {
+                case 2:
+                    deporte = "Tenis o Ajedrez";
+                    break;
+                case 5:
+                    deporte = "Baloncesto";
+                    break;
+                case 6:
+                    deporte = "Voleibol";
+                    break;
+                case 11:
+                    deporte = "Fútbol";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (deporte !== "no registrado") ? 
+                "El deporte con " + jugadores + " jugadores es: " + deporte :
+                "Cantidad de jugadores no registrada";
+        }
+    </script>
+</body>
+</html>

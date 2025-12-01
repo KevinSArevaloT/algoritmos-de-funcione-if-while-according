@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Vehículo</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para identificar el tipo de vehículo según el número de ruedas
+        Entradas:
+            ruedas: número entero ingresado por el usuario que indica la cantidad de ruedas
+        Salidas:
+            Mensaje indicando el tipo de vehículo correspondiente
+        Proceso:
+            1. Muestra un menú con opciones de vehículos según la cantidad de ruedas.
+            2. Solicita al usuario ingresar el número de ruedas.
+            3. Según el número ingresado, asigna el tipo de vehículo correspondiente.
+            4. Si el número no coincide con los valores válidos, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de vehículo====="</h3>
+
+    <label for="ruedasInput">Ingrese el número de ruedas:</label>
+    <input type="number" id="ruedasInput" min="2">
+    <button onclick="identificarVehiculo()">Identificar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function identificarVehiculo() {
+            let ruedas = parseInt(document.getElementById("ruedasInput").value);
+            let vehiculo = "no registrado";
+
+            switch(ruedas) {
+                case 2:
+                    vehiculo = "Bicicleta o Motocicleta";
+                    break;
+                case 3:
+                    vehiculo = "Motocarro";
+                    break;
+                case 4:
+                    vehiculo = "Automóvil";
+                    break;
+                case 6:
+                    vehiculo = "Camión pequeño";
+                    break;
+                case 8:
+                    vehiculo = "Camión grande o Bus";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (vehiculo !== "no registrado") ? 
+                "El vehículo con " + ruedas + " ruedas es: " + vehiculo :
+                "Número de ruedas no registrado";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Categoría de tienda</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar la categoría de una tienda según el número de sucursales
+        Entradas:
+            sucursal: número entero ingresado por el usuario
+        Salidas:
+            Mensaje indicando la categoría de la tienda
+        Proceso:
+            1. Solicita al usuario ingresar el número de sucursales de la tienda.
+            2. Según el número ingresado, asigna la categoría correspondiente:
+                - 1: Pequeña
+                - 2 o 3: Mediana
+                - 4, 5 o 6: Grande
+                - 7 a 10: Cadena nacional
+            3. Si el número no coincide con los valores válidos, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Categoría de una tienda====="</h3>
+
+    <label for="sucursalInput">Ingrese el número de sucursales:</label>
+    <input type="number" id="sucursalInput" min="1">
+    <button onclick="determinarCategoria()">Determinar categoría</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function determinarCategoria() {
+            let sucursal = parseInt(document.getElementById("sucursalInput").value);
+            let categoria = "no registrada";
+
+            switch(sucursal) {
+                case 1:
+                    categoria = "Pequeña";
+                    break;
+                case 2:
+                case 3:
+                    categoria = "Mediana";
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    categoria = "Grande";
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    categoria = "Cadena nacional";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (categoria !== "no registrada") ? 
+                "La tienda con " + sucursal + " sucursales es de categoría: " + categoria :
+                "Número de sucursales no registrado";
+        }
+    </script>
+</body>
+</html>

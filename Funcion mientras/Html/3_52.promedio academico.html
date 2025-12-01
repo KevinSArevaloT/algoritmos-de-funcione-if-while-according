@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcula promedio de notas</title>
+</head>
+<body>
+    <!--
+        Nombre: Calcula promedio de notas
+        Entradas: nota (Valor de la nota ingresada por el usuario, -1 para finalizar)
+        Salidas: pro (Promedio acumulado de las notas ingresadas)
+        Proceso: Se ingresan notas en un ciclo MIENTRAS hasta que el usuario ingresa -1, calculando el promedio acumulado
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Calcula tu promedio=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let suma = 0;
+        let div = 0;
+        let nota = 0;
+        let resultado = document.getElementById("resultado");
+
+        while(nota !== -1){
+            nota = parseFloat(prompt("Ingresa una nota (-1 para salir):"));
+
+            if(nota !== -1){
+                suma += nota;
+                div += 1;
+                let pro = suma / div;
+                let p = document.createElement("p");
+                p.textContent = "Tu promedio es: " + pro.toFixed(2);
+                resultado.appendChild(p);
+            }
+        }
+    </script>
+</body>
+</html>

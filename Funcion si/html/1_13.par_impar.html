@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Par o Impar</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si un número es par o impar
+        Entradas: 
+            num: Número entero ingresado por el usuario
+        Salidas: 
+            Mensaje indicando si el número es par o impar
+        Proceso: 
+            El programa solicita un número entero.  
+            - Si el residuo de dividir el número entre 2 es 0 (num mod 2 = 0), 
+              se indica que es par.  
+            - En caso contrario, se indica que es impar.  
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Par / Impar =====</h3>
+
+    <p>Indica un número para saber si es par o impar:</p>
+    <input type="number" id="numInput" placeholder="Escribe un número">
+    <button onclick="verificarParImpar()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que determina si un número es par o impar
+        function verificarParImpar() {
+            // Leer la entrada del usuario
+            let num = parseInt(document.getElementById("numInput").value);
+            let mensaje = "";
+
+            // Proceso: evaluar si el número es par o impar
+            if (num % 2 === 0) {
+                mensaje = num + " es par";
+            } else {
+                mensaje = num + " es impar";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

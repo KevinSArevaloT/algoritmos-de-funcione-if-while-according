@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rango Numérico</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para verificar si un número está dentro del rango de 0 a 100
+        Entradas: 
+            num: Número real ingresado por el usuario
+        Salidas: 
+            Mensaje indicando si el número se encuentra o no dentro del rango [0, 100]
+        Proceso: 
+            El programa solicita un número real.  
+            - Si el valor está entre 0 y 100 (incluyendo ambos límites), 
+              muestra que está dentro del rango.  
+            - En caso contrario, indica que no pertenece al rango.  
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Rango Numérico =====</h3>
+
+    <p>Introduce un número entre 0 y 100:</p>
+    <input type="number" id="numInput" placeholder="Escribe un número">
+    <button onclick="verificarRango()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que verifica si un número está dentro del rango [0,100]
+        function verificarRango() {
+            // Leer la entrada del usuario
+            let num = parseFloat(document.getElementById("numInput").value);
+            let mensaje = "";
+
+            // Proceso: evaluar si el número está dentro del rango
+            if (num >= 0 && num <= 100) {
+                mensaje = num + " se encuentra entre 0 y 100";
+            } else {
+                mensaje = num + " no se encuentra entre 0 y 100";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

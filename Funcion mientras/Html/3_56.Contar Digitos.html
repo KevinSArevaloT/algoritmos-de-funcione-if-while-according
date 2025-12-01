@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contar dígitos de un número</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para contar cuántos dígitos tiene un número
+        Entradas: numero (número entero positivo ingresado por el usuario)
+        Salidas: digitos (cantidad de dígitos del número ingresado)
+        Proceso:
+            1. Solicitar un número positivo al usuario.
+            2. Validar que el número sea mayor a 0.
+            3. Mientras el número sea mayor a 0, dividir entre 10 y contar los dígitos.
+            4. Mostrar el total de dígitos.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Contar cuántos dígitos tiene un número=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let numero = parseInt(prompt("Ingrese un número entero positivo:"));
+        const resultado = document.getElementById("resultado");
+
+        // Validación de número positivo
+        while(numero <= 0 || isNaN(numero)){
+            numero = parseInt(prompt("El número no es válido. Ingrese un número positivo:"));
+        }
+
+        let digitos = 0;
+        let numeroTemp = numero;
+
+        while(numeroTemp > 0){
+            numeroTemp = Math.trunc(numeroTemp / 10);
+            digitos++;
+        }
+
+        let p = document.createElement("p");
+        p.textContent = "El número ingresado tiene " + digitos + " dígitos.";
+        resultado.appendChild(p);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de transporte</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para recomendar tipo de transporte según la distancia recorrida
+        Entradas:
+            distancia: número real que indica la distancia en kilómetros
+        Salidas:
+            Mensaje indicando el transporte recomendado según la distancia
+        Proceso:
+            1. Solicita al usuario ingresar la distancia a recorrer.
+            2. Clasifica la distancia en categorías:
+                - 0 < distancia <= 2 → Caminar
+                - 2 < distancia <= 10 → Bicicleta
+                - 10 < distancia <= 50 → Automóvil
+                - 50 < distancia <= 500 → Autobús
+                - distancia > 500 → Avión
+            3. Si la distancia no es válida, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de transporte según distancia recorrida====="</h3>
+
+    <label for="distanciaInput">Ingrese la distancia a recorrer (km):</label>
+    <input type="number" id="distanciaInput" step="0.01" min="0">
+    <button onclick="recomendarTransporte()">Recomendar transporte</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function recomendarTransporte() {
+            let distancia = parseFloat(document.getElementById("distanciaInput").value);
+            let categoria = 0;
+            let transporte = "no registrado";
+
+            if (distancia > 0 && distancia <= 2) {
+                categoria = 1;
+            } else if (distancia > 2 && distancia <= 10) {
+                categoria = 2;
+            } else if (distancia > 10 && distancia <= 50) {
+                categoria = 3;
+            } else if (distancia > 50 && distancia <= 500) {
+                categoria = 4;
+            } else if (distancia > 500) {
+                categoria = 5;
+            }
+
+            switch(categoria) {
+                case 1: transporte = "Caminar"; break;
+                case 2: transporte = "Bicicleta"; break;
+                case 3: transporte = "Automóvil"; break;
+                case 4: transporte = "Autobús"; break;
+                case 5: transporte = "Avión"; break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (transporte !== "no registrado") ?
+                `Para una distancia de ${distancia} km, el transporte recomendado es: ${transporte}` :
+                "Distancia no registrada";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Contraseña</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para validar una contraseña
+        Entradas: contraseña ingresada por el usuario
+        Salidas: Mensajes indicando si la contraseña es correcta o incorrecta
+        Proceso:
+            1. Define la contraseña secreta.
+            2. Solicita al usuario ingresar la contraseña.
+            3. Mientras el intento sea diferente a la contraseña secreta:
+                3.1. Muestra mensaje de contraseña incorrecta.
+                3.2. Solicita al usuario ingresar nuevamente la contraseña.
+            4. Al ingresar la contraseña correcta, muestra mensaje de acceso concedido.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Validación de contraseña=====</h3>
+    <input type="password" id="inputContrasena" placeholder="Ingrese la contraseña">
+    <button onclick="validarContrasena()">Validar</button>
+    <div id="mensaje"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        const contrasenaSecreta = "12345"; // Contraseña secreta
+        const mensajeDiv = document.getElementById("mensaje");
+
+        function validarContrasena() {
+            const intento = document.getElementById("inputContrasena").value;
+
+            // Proceso de validación
+            if(intento === contrasenaSecreta){
+                mensajeDiv.textContent = "¡Acceso concedido! Contraseña correcta.";
+            } else {
+                mensajeDiv.textContent = "Contraseña incorrecta. Intente nuevamente.";
+                document.getElementById("inputContrasena").value = "";
+                document.getElementById("inputContrasena").focus();
+            }
+        }
+    </script>
+</body>
+</html>

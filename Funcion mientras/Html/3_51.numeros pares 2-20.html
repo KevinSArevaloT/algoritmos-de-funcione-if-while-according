@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Números pares del 2 al 20</title>
+</head>
+<body>
+    <!--
+        Nombre: Numeros pares del 2 al 20
+        Entradas: Ninguna
+        Salidas: Muestra en pantalla los números pares del 2 al 20
+        Proceso: Se utiliza un ciclo MIENTRAS que incrementa de 2 en 2 desde 2 hasta 20
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Numeros pares del 2 al 20=====</h3>
+    <ul id="pares"></ul>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let i = 2;
+        let lista = document.getElementById("pares");
+
+        while(i <= 20){
+            let li = document.createElement("li");
+            li.textContent = i;
+            lista.appendChild(li);
+            i += 2;
+        }
+    </script>
+</body>
+</html>

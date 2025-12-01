@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes del Año</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para mostrar el mes del año a partir de un número
+        Entradas: 
+            mes: Número entero entre 1 y 12 que representa el mes
+        Salidas: 
+            Nombre del mes correspondiente o un mensaje indicando que el número no es válido
+        Proceso: 
+            El programa solicita un número del 1 al 12. 
+            - Usando la estructura SEGÚN, se muestra el nombre del mes correspondiente.  
+            - Si el número no está en el rango, se muestra "Número no válido".  
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Meses del Año =====</h3>
+
+    <p>Escribe un número para mostrar su mes definido (1-12):</p>
+    <input type="number" id="mesInput" placeholder="Escribe un número">
+    <button onclick="mostrarMes()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que muestra el mes correspondiente a un número del 1 al 12
+        function mostrarMes() {
+            let mes = parseInt(document.getElementById("mesInput").value);
+            let mensaje = "";
+
+            // Proceso: verificar el número y mostrar el mes correspondiente
+            switch(mes) {
+                case 1:
+                    mensaje = "Enero";
+                    break;
+                case 2:
+                    mensaje = "Febrero";
+                    break;
+                case 3:
+                    mensaje = "Marzo";
+                    break;
+                case 4:
+                    mensaje = "Abril";
+                    break;
+                case 5:
+                    mensaje = "Mayo";
+                    break;
+                case 6:
+                    mensaje = "Junio";
+                    break;
+                case 7:
+                    mensaje = "Julio";
+                    break;
+                case 8:
+                    mensaje = "Agosto";
+                    break;
+                case 9:
+                    mensaje = "Septiembre";
+                    break;
+                case 10:
+                    mensaje = "Octubre";
+                    break;
+                case 11:
+                    mensaje = "Noviembre";
+                    break;
+                case 12:
+                    mensaje = "Diciembre";
+                    break;
+                default:
+                    mensaje = "Número no válido";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

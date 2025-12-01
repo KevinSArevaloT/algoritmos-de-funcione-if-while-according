@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Documento</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para seleccionar un tipo de documento según un número
+        Entradas:
+            num: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje indicando el tipo de documento seleccionado
+        Proceso:
+            1. Muestra un menú con opciones de documentos numeradas del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente al documento.
+            3. Según el número ingresado, asigna el documento correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de documento====="</h3>
+
+    <label for="documentoInput">Ingrese el número para el tipo de documento:</label>
+    <input type="number" id="documentoInput" min="1" max="5">
+    <button onclick="seleccionarDocumento()">Seleccionar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function seleccionarDocumento() {
+            let num = parseInt(document.getElementById("documentoInput").value);
+            let documento = "no registrado";
+
+            switch(num) {
+                case 1:
+                    documento = "Cédula de ciudadanía";
+                    break;
+                case 2:
+                    documento = "Tarjeta de identidad";
+                    break;
+                case 3:
+                    documento = "Pasaporte";
+                    break;
+                case 4:
+                    documento = "Licencia de conducción";
+                    break;
+                case 5:
+                    documento = "Cédula de extranjería";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (documento !== "no registrado") ? 
+                "El documento seleccionado es: " + documento :
+                "Número no registrado";
+        }
+    </script>
+</body>
+</html>

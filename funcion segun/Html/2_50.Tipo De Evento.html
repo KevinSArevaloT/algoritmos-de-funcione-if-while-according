@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de evento</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para determinar tipo de evento según número de participantes
+        Entradas:
+            participantes: número entero que indica la cantidad de personas en el evento
+        Salidas:
+            Mensaje indicando el tipo de evento según la cantidad de participantes
+        Proceso:
+            1. Solicita al usuario ingresar el número de participantes.
+            2. Clasifica el evento según la cantidad:
+                - 1 a 20 → Reunión pequeña
+                - 21 a 100 → Conferencia o taller
+                - 101 a 500 → Concierto mediano
+                - 501 a 2000 → Festival o convención
+                - >2000 → Evento masivo
+            3. Si el número de participantes no es válido, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de evento según número de participantes====="</h3>
+
+    <label for="participantesInput">Ingrese el número de participantes:</label>
+    <input type="number" id="participantesInput" min="1">
+    <button onclick="determinarEvento()">Determinar evento</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function determinarEvento() {
+            let participantes = parseInt(document.getElementById("participantesInput").value);
+            let categoria = 0;
+            let evento = "no registrado";
+
+            if (participantes > 0 && participantes <= 20) {
+                categoria = 1;
+            } else if (participantes > 20 && participantes <= 100) {
+                categoria = 2;
+            } else if (participantes > 100 && participantes <= 500) {
+                categoria = 3;
+            } else if (participantes > 500 && participantes <= 2000) {
+                categoria = 4;
+            } else if (participantes > 2000) {
+                categoria = 5;
+            }
+
+            switch(categoria) {
+                case 1: evento = "Reunión pequeña"; break;
+                case 2: evento = "Conferencia o taller"; break;
+                case 3: evento = "Concierto mediano"; break;
+                case 4: evento = "Festival o convención"; break;
+                case 5: evento = "Evento masivo"; break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (evento !== "no registrado") ?
+                `Con ${participantes} participantes, el evento es: ${evento}` :
+                "Número de participantes no registrado";
+        }
+    </script>
+</body>
+</html>

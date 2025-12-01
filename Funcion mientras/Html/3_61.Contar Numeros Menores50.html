@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contar números menores a 50</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para contar números menores a 50
+        Entradas: numero (número ingresado por el usuario en cada iteración)
+        Salidas: contador (cantidad de números ingresados que son menores a 50)
+        Proceso:
+            1. Inicializa el contador en 0.
+            2. Solicita al usuario ingresar números hasta que ingrese un número negativo.
+            3. Cada vez que el número ingresado es menor a 50, incrementa el contador.
+            4. Al finalizar, muestra la cantidad de números menores a 50.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Contar números menores a 50=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        const resultado = document.getElementById("resultado");
+        let contador = 0;
+        let numero = parseInt(prompt("Ingrese un número (ingrese un número negativo para terminar):"));
+
+        while(numero >= 0 && !isNaN(numero)){
+            if(numero < 50){
+                contador++;
+            }
+            numero = parseInt(prompt("Ingrese otro número (negativo para salir):"));
+        }
+
+        let pFinal = document.createElement("p");
+        pFinal.textContent = "La cantidad de números menores a 50 ingresados es: " + contador;
+        resultado.appendChild(pFinal);
+    </script>
+</body>
+</html>

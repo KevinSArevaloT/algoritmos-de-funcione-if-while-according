@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Acceso Administrador</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para validar acceso de administrador
+        Entradas: 
+            usuario: Texto que representa el nombre de usuario ingresado
+        Salidas: 
+            Mensaje indicando si el acceso es concedido o denegado
+        Proceso: 
+            El programa solicita un nombre de usuario. 
+            Si el nombre ingresado es "admin", se concede el acceso. 
+            En cualquier otro caso, el acceso es denegado.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== Ingrese el nombre de usuario: ========</h3>
+
+    <input type="text" id="usuarioInput" placeholder="Escribe tu usuario">
+    <button onclick="validarAcceso()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que valida el acceso de administrador
+        function validarAcceso() {
+            // Leer la entrada del usuario
+            let usuario = document.getElementById("usuarioInput").value;
+            let mensaje = "";
+
+            // Proceso: verificar si el usuario es "admin"
+            if (usuario === "admin") {
+                mensaje = "Acceso concedido.";
+            } else {
+                mensaje = "Acceso denegado.";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

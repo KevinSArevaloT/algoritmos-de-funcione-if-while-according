@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Comida</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para seleccionar un tipo de comida según su categoría
+        Entradas:
+            categoria: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje indicando la categoría de comida seleccionada
+        Proceso:
+            1. Muestra un menú con opciones de categorías de comida numeradas del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente a la categoría.
+            3. Según el número ingresado, asigna la categoría correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de comida====="</h3>
+
+    <label for="categoriaInput">Ingrese la categoría de comida:</label>
+    <input type="number" id="categoriaInput" min="1" max="5">
+    <button onclick="seleccionarComida()">Seleccionar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function seleccionarComida() {
+            let categoria = parseInt(document.getElementById("categoriaInput").value);
+            let comida = "no registrada";
+
+            switch(categoria) {
+                case 1:
+                    comida = "Entrada";
+                    break;
+                case 2:
+                    comida = "Plato fuerte";
+                    break;
+                case 3:
+                    comida = "Postre";
+                    break;
+                case 4:
+                    comida = "Bebida";
+                    break;
+                case 5:
+                    comida = "Snack";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (comida !== "no registrada") ? 
+                "La categoría seleccionada es: " + comida :
+                "Categoría no registrada";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Día Semanal</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar el tipo de día según el número de la semana
+        Entradas:
+            dia: número entero que representa el día de la semana (1-7)
+        Salidas:
+            Mensaje en pantalla indicando si el día es laboral o fin de semana
+        Proceso: 
+            1. Solicita al usuario ingresar un número que represente el día de la semana.
+            2. Según el número ingresado, asigna si es "día laboral" o "fin de semana".
+            3. Si el número no está entre 1 y 7, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Tipo de Día Semanal =====</h3>
+
+    <p>Ingrese el número del día de la semana (1-7):</p>
+    <input type="number" id="diaInput" min="1" max="7" placeholder="1-7">
+    <button onclick="tipoDiaSemanal()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        function tipoDiaSemanal() {
+            let dia = parseInt(document.getElementById("diaInput").value);
+            let tipo = "";
+            let mensaje = "";
+
+            // Determinar el tipo de día según el número
+            switch(dia) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    tipo = "día laboral";
+                    break;
+                case 6:
+                case 7:
+                    tipo = "fin de semana";
+                    break;
+                default:
+                    mensaje = dia + " es un día semanal inválido";
+            }
+
+            // Mostrar resultado si el día es válido
+            if(dia >= 1 && dia <= 7) {
+                mensaje = "El tipo de día semanal " + dia + " es " + tipo;
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

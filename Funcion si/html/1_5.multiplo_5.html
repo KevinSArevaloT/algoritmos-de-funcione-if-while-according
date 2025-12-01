@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Múltiplo de 5</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si un número es múltiplo de 5
+        Entradas: 
+            unidad: Número entero ingresado por el usuario
+        Salidas: 
+            Mensaje indicando si el número es múltiplo de 5 o no lo es
+        Proceso: 
+            El programa solicita un número entero y aplica la operación módulo (mod).
+            Si el residuo de dividir el número entre 5 es igual a 0, 
+            se indica que es múltiplo de 5. En caso contrario, no lo es.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== ¿Múltiplo de 5? ========</h3>
+
+    <p>Indique un número:</p>
+    <input type="number" id="numeroInput" placeholder="Escribe un número">
+    <button onclick="verificarMultiplo5()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que determina si un número es múltiplo de 5
+        function verificarMultiplo5() {
+            // Leer la entrada del usuario
+            let unidad = parseInt(document.getElementById("numeroInput").value);
+            let mensaje = "";
+
+            // Proceso: verificar si el número es múltiplo de 5
+            if (unidad % 5 === 0) {
+                mensaje = unidad + " es múltiplo de 5";
+            } else {
+                mensaje = unidad + " no es múltiplo de 5";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

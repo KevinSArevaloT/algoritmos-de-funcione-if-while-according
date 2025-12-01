@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensaje Motivacional</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para mostrar un mensaje motivacional según el día de la semana
+        Entradas:
+            dia: número entero que representa el día de la semana (1-7)
+        Salidas:
+            Mensaje motivacional correspondiente al día
+        Proceso:
+            1. Solicita al usuario ingresar un número que represente el día de la semana.
+            2. Según el número ingresado, asigna un mensaje motivacional.
+            3. Si el número no está entre 1 y 7, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Mensaje motivacional según el día====="</h3>
+
+    <label for="diaInput">Ingrese un día de la semana (1-7):</label>
+    <input type="number" id="diaInput" min="1" max="7">
+    <button onclick="mensajeMotivacional()">Mostrar Mensaje</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function mensajeMotivacional() {
+            let dia = parseInt(document.getElementById("diaInput").value);
+            let mensaje = "no registrado";
+
+            switch(dia) {
+                case 1:
+                    mensaje = "¡Nuevo inicio! Haz de este lunes el comienzo de tus logros.";
+                    break;
+                case 2:
+                    mensaje = "Sigue avanzando, cada paso te acerca a tu meta.";
+                    break;
+                case 3:
+                    mensaje = "¡Mitad de semana! No te rindas, lo mejor está por venir.";
+                    break;
+                case 4:
+                    mensaje = "Jueves de esfuerzo, el éxito está a la vuelta de la esquina.";
+                    break;
+                case 5:
+                    mensaje = "¡Viernes! Celebra lo que lograste esta semana.";
+                    break;
+                case 6:
+                    mensaje = "Disfruta tu sábado, recarga energías y sonríe.";
+                    break;
+                case 7:
+                    mensaje = "Un domingo de descanso prepara un lunes de victoria.";
+                    break;
+                default:
+                    mensaje = "Día no registrado";
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

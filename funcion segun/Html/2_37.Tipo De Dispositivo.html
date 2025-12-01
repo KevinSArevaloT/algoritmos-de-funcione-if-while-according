@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Dispositivo</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para seleccionar un tipo de dispositivo según un número
+        Entradas:
+            num: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje indicando el dispositivo seleccionado
+        Proceso:
+            1. Muestra un menú con opciones de dispositivos numeradas del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente al dispositivo.
+            3. Según el número ingresado, asigna el dispositivo correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de dispositivo====="</h3>
+
+    <label for="dispositivoInput">Ingrese un número para seleccionar el dispositivo (1-5):</label>
+    <input type="number" id="dispositivoInput" min="1" max="5">
+    <button onclick="seleccionarDispositivo()">Seleccionar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function seleccionarDispositivo() {
+            let num = parseInt(document.getElementById("dispositivoInput").value);
+            let dispositivo = "no registrado";
+
+            switch(num) {
+                case 1:
+                    dispositivo = "Computador";
+                    break;
+                case 2:
+                    dispositivo = "Teléfono móvil";
+                    break;
+                case 3:
+                    dispositivo = "Tablet";
+                    break;
+                case 4:
+                    dispositivo = "Consola de videojuegos";
+                    break;
+                case 5:
+                    dispositivo = "Smart TV";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (dispositivo !== "no registrado") ? 
+                "El dispositivo seleccionado es: " + dispositivo : 
+                "Número no registrado";
+        }
+    </script>
+</body>
+</html>

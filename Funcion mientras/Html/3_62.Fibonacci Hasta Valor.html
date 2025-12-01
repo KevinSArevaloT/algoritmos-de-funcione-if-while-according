@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Secuencia de Fibonacci</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para generar la secuencia de Fibonacci hasta un valor límite
+        Entradas: limite (valor máximo hasta el cual se generará la secuencia)
+        Salidas: Secuencia de números de Fibonacci menores o iguales al límite
+        Proceso:
+            1. Inicializa los dos primeros términos de Fibonacci (a = 0, b = 1).
+            2. Muestra los dos primeros términos.
+            3. Calcula los siguientes términos sumando los dos anteriores.
+            4. Mientras el siguiente término sea menor o igual al límite, lo muestra y actualiza los términos.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Secuencia de Fibonacci=====</h3>
+    <div id="fibonacciSecuencia"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        const contenedor = document.getElementById("fibonacciSecuencia");
+        let limite = parseInt(prompt("Ingrese el valor límite para la secuencia de Fibonacci:"));
+
+        if(!isNaN(limite) && limite >= 0){
+            let a = 0, b = 1;
+            let secuencia = [a];
+
+            if(b <= limite){
+                secuencia.push(b);
+            }
+
+            while(true){
+                let siguiente = a + b;
+                if(siguiente > limite){
+                    break;
+                }
+                secuencia.push(siguiente);
+                a = b;
+                b = siguiente;
+            }
+
+            contenedor.textContent = "Secuencia: " + secuencia.join(", ");
+        } else {
+            contenedor.textContent = "Valor límite no válido.";
+        }
+    </script>
+</body>
+</html>

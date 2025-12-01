@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Puntaje según rendimiento en un examen</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para asignar puntaje según el rendimiento en un examen
+        Entradas:
+            rendimiento: número entero entre 1 y 5 que indica el nivel de rendimiento
+        Salidas:
+            Mensaje indicando el puntaje correspondiente
+        Proceso:
+            1. Solicita al usuario ingresar el nivel de rendimiento del examen.
+            2. Utiliza SEGUN para asignar el puntaje correspondiente:
+                - 1: Excelente → 100 puntos
+                - 2: Bueno → 80 puntos
+                - 3: Aceptable → 60 puntos
+                - 4: Insuficiente → 40 puntos
+                - 5: Deficiente → 20 puntos
+            3. Si el valor ingresado no es válido, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Puntaje según rendimiento en un examen====="</h3>
+
+    <label for="rendimientoInput">Ingrese el nivel de rendimiento del examen:</label>
+    <select id="rendimientoInput">
+        <option value="1">1. Excelente</option>
+        <option value="2">2. Bueno</option>
+        <option value="3">3. Aceptable</option>
+        <option value="4">4. Insuficiente</option>
+        <option value="5">5. Deficiente</option>
+    </select>
+    <button onclick="calcularPuntaje()">Calcular puntaje</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function calcularPuntaje() {
+            let rendimiento = parseInt(document.getElementById("rendimientoInput").value);
+            let puntaje = "no registrado";
+
+            switch(rendimiento) {
+                case 1:
+                    puntaje = "100 puntos";
+                    break;
+                case 2:
+                    puntaje = "80 puntos";
+                    break;
+                case 3:
+                    puntaje = "60 puntos";
+                    break;
+                case 4:
+                    puntaje = "40 puntos";
+                    break;
+                case 5:
+                    puntaje = "20 puntos";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (puntaje !== "no registrado") ? 
+                `El rendimiento seleccionado equivale a: ${puntaje}` :
+                "Rendimiento no registrado";
+        }
+    </script>
+</body>
+</html>

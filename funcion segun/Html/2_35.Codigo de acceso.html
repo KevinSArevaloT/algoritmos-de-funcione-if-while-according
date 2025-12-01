@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Código de acceso según rol</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para asignar un código de acceso según el rol del usuario
+        Entradas:
+            rol: número entero que representa el rol del usuario (1-5)
+        Salidas:
+            Mensaje indicando el código de acceso correspondiente al rol
+        Proceso:
+            1. Muestra un menú con los roles disponibles numerados del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente al rol.
+            3. Según el número ingresado, asigna el código de acceso correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Código de acceso según rol====="</h3>
+
+    <label for="rolInput">Ingrese el rol del usuario (1-5):</label>
+    <input type="number" id="rolInput" min="1" max="5">
+    <button onclick="asignarCodigo()">Mostrar Código</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function asignarCodigo() {
+            let rol = parseInt(document.getElementById("rolInput").value);
+            let codigoAcceso = "no registrado";
+
+            switch(rol) {
+                case 1:
+                    codigoAcceso = "ADM-1234";
+                    break;
+                case 2:
+                    codigoAcceso = "PROF-5678";
+                    break;
+                case 3:
+                    codigoAcceso = "EST-9012";
+                    break;
+                case 4:
+                    codigoAcceso = "INV-3456";
+                    break;
+                case 5:
+                    codigoAcceso = "SOP-7890";
+                    break;
+                default:
+                    codigoAcceso = "Rol no registrado";
+            }
+
+            document.getElementById("resultado").textContent = 
+                (codigoAcceso !== "no registrado") ? 
+                "El código de acceso asignado es: " + codigoAcceso : 
+                codigoAcceso;
+        }
+    </script>
+</body>
+</html>

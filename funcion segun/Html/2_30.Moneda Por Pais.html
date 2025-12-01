@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Moneda por País</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para mostrar la moneda de un país
+        Entradas:
+            pais: nombre del país ingresado por el usuario
+        Salidas:
+            Mensaje en pantalla indicando la moneda oficial del país
+        Proceso: 
+            1. Solicita al usuario ingresar el nombre de un país.
+            2. Según el país ingresado, asigna la moneda correspondiente.
+            3. Si el país no está registrado, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Tipo de moneda por país =====</h3>
+
+    <p>Ingrese un país:</p>
+    <input type="text" id="paisInput">
+    <button onclick="monedaPorPais()">Mostrar Moneda</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        function monedaPorPais() {
+            let pais = document.getElementById("paisInput").value.trim();
+            let moneda = "";
+
+            switch(pais) {
+                case "Colombia":
+                    moneda = "Peso colombiano (COP)";
+                    break;
+                case "Estados Unidos":
+                    moneda = "Dólar estadounidense (USD)";
+                    break;
+                case "España":
+                    moneda = "Euro (EUR)";
+                    break;
+                case "Argentina":
+                    moneda = "Peso argentino (ARS)";
+                    break;
+                case "Brasil":
+                    moneda = "Real brasileño (BRL)";
+                    break;
+                case "Mexico":
+                    moneda = "Peso mexicano (MXN)";
+                    break;
+                case "Canada":
+                    moneda = "Dólar canadiense (CAD)";
+                    break;
+                case "Japon":
+                    moneda = "Yen japonés (JPY)";
+                    break;
+                case "Inglaterra":
+                    moneda = "Libra esterlina (GBP)";
+                    break;
+                case "China":
+                    moneda = "Yuan (CNY)";
+                    break;
+                default:
+                    moneda = "no registrada";
+            }
+
+            if(moneda !== "no registrada") {
+                document.getElementById("resultado").textContent = "La moneda de " + pais + " es: " + moneda;
+            } else {
+                document.getElementById("resultado").textContent = "País no registrado";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Triángulo</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar el tipo de triángulo según sus lados
+        Entradas: 
+            l1: Número real que representa el primer lado del triángulo
+            l2: Número real que representa el segundo lado del triángulo
+            l3: Número real que representa el tercer lado del triángulo
+        Salidas: 
+            Mensaje indicando si el triángulo es equilátero, isósceles, escaleno
+            o si los lados no forman un triángulo válido
+        Proceso: 
+            El programa solicita los tres lados de un triángulo. 
+            Primero verifica la condición de existencia de triángulos:
+                (l1 + l2 > l3) Y (l1 + l3 > l2) Y (l2 + l3 > l1).
+            Si se cumple, determina el tipo:
+                - Equilátero: los tres lados iguales
+                - Isósceles: dos lados iguales
+                - Escaleno: todos los lados diferentes
+            Si no se cumple la condición, se indica que no es un triángulo válido.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== Tipo de Triángulo ========</h3>
+
+    <p>Ingrese el primer lado del triángulo:</p>
+    <input type="number" id="l1Input" placeholder="Lado 1">
+    <p>Ingrese el segundo lado del triángulo:</p>
+    <input type="number" id="l2Input" placeholder="Lado 2">
+    <p>Ingrese el tercer lado del triángulo:</p>
+    <input type="number" id="l3Input" placeholder="Lado 3">
+    <br><br>
+    <button onclick="determinarTriangulo()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que determina el tipo de triángulo
+        function determinarTriangulo() {
+            // Leer las entradas del usuario
+            let l1 = parseFloat(document.getElementById("l1Input").value);
+            let l2 = parseFloat(document.getElementById("l2Input").value);
+            let l3 = parseFloat(document.getElementById("l3Input").value);
+            let mensaje = "";
+
+            // Proceso: verificar si los lados forman un triángulo válido
+            if ((l1 + l2 > l3) && (l1 + l3 > l2) && (l2 + l3 > l1)) {
+                if (l1 === l2 && l2 === l3) {
+                    mensaje = "El triángulo es equilátero.";
+                } else if (l1 === l2 || l1 === l3 || l2 === l3) {
+                    mensaje = "El triángulo es isósceles.";
+                } else {
+                    mensaje = "El triángulo es escaleno.";
+                }
+            } else {
+                mensaje = "Los lados ingresados no forman un triángulo válido.";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

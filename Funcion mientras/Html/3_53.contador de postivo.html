@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de números positivos</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para contar números positivos ingresados por el usuario
+        Entradas: num (número ingresado por el usuario, puede ser positivo o negativo)
+        Salidas: posi (cantidad de números positivos ingresados)
+        Proceso: 
+            1. Inicializa el contador de positivos en 0.
+            2. Solicita al usuario ingresar números repetidamente hasta que se ingrese un número negativo.
+            3. Cada vez que se ingresa un número positivo, incrementa el contador y muestra la cantidad actual.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Contador de números positivos=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let num = 0;
+        let posi = 0;
+        let resultado = document.getElementById("resultado");
+
+        while(num >= 0){
+            num = parseFloat(prompt("Escribe un número (negativo para salir):"));
+
+            if(num >= 0){
+                posi += 1;
+                let p = document.createElement("p");
+                p.textContent = "Llevas " + posi + " números positivos";
+                resultado.appendChild(p);
+            }
+        }
+    </script>
+</body>
+</html>

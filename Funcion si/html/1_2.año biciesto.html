@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Año Bisiesto</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si un año es bisiesto
+        Entradas: 
+            año: Número entero que representa el año ingresado por el usuario
+        Salidas: 
+            Mensaje indicando si el año es bisiesto o no lo es
+        Proceso: 
+            El programa solicita un año y aplica la regla:
+            - Un año es bisiesto si es divisible entre 4 y no divisible entre 100,
+              o si es divisible entre 400. 
+            Dependiendo de la condición, imprime el resultado correspondiente.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== ¿Es año bisiesto? ========</h3>
+
+    <p>Indica un año:</p>
+    <input type="number" id="anioInput" placeholder="Escribe un año">
+    <button onclick="verificarBisiesto()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que determina si un año es bisiesto
+        function verificarBisiesto() {
+            // Leer la entrada del usuario
+            let año = parseInt(document.getElementById("anioInput").value);
+            let mensaje = "";
+
+            // Proceso: verificar si el año es bisiesto
+            if ((año % 4 === 0 && año % 100 !== 0) || (año % 400 === 0)) {
+                mensaje = año + " es un año bisiesto";
+            } else {
+                mensaje = año + " es un año no bisiesto";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

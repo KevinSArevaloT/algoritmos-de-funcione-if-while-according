@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Número Positivo o Negativo</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para determinar si un número es positivo o negativo
+        Entradas: 
+            a: Número real ingresado por el usuario
+        Salidas: 
+            Mensaje indicando si el número es positivo o negativo
+        Proceso: 
+            El programa solicita un número, verifica si es mayor o igual a cero 
+            para clasificarlo como positivo, de lo contrario lo clasifica como negativo.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>======== Número Negativo o Positivo ========</h3>
+
+    <p>Indica un número:</p>
+    <input type="number" id="numeroInput" placeholder="Escribe un número">
+    <button onclick="verificarNumero()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>========== Fin del programa ==========
+    </p>
+
+    <script>
+        // Función que determina si un número es positivo o negativo
+        function verificarNumero() {
+            // Leer la entrada del usuario
+            let a = parseFloat(document.getElementById("numeroInput").value);
+            let mensaje = "";
+
+            // Proceso: verificar si el número es positivo o negativo
+            if (a >= 0) {
+                mensaje = a + " es un número positivo";
+            } else {
+                mensaje = a + " es un número negativo";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

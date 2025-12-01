@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificar Producto</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para clasificar productos según su categoría
+        Entradas:
+            id: número entero que indica la categoría del producto (1-8)
+        Salidas:
+            Mensaje en pantalla indicando la categoría del producto
+        Proceso: 
+            1. Solicita al usuario el número correspondiente al producto.
+            2. Según el número ingresado, muestra la categoría del producto.
+            3. Si el número no está entre 1 y 8, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Clasificar Producto =====</h3>
+
+    <p>Indica el último número referente al producto (1-8):</p>
+    <input type="number" id="productoInput" placeholder="Escribe un número">
+    <button onclick="clasificarProducto()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        // Función que clasifica el producto según su número
+        function clasificarProducto() {
+            let id = parseInt(document.getElementById("productoInput").value);
+            let mensaje = "";
+
+            // Proceso: usar switch para determinar la categoría
+            switch(id) {
+                case 1:
+                    mensaje = "El producto es una fruta";
+                    break;
+                case 2:
+                    mensaje = "El producto es una verdura";
+                    break;
+                case 3:
+                    mensaje = "El producto es un congelado";
+                    break;
+                case 4:
+                    mensaje = "El producto está listo para comer";
+                    break;
+                case 5:
+                    mensaje = "El producto es un producto de limpieza";
+                    break;
+                case 6:
+                    mensaje = "El producto es de aseo personal";
+                    break;
+                case 7:
+                    mensaje = "El producto es un enlatado";
+                    break;
+                case 8:
+                    mensaje = "El producto es carne";
+                    break;
+                default:
+                    mensaje = "Número no válido";
+            }
+
+            // Salida: mostrar el resultado en la página
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

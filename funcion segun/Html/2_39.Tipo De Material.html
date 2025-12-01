@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de Material</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para seleccionar un tipo de material según un código
+        Entradas:
+            codigo: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje indicando el material seleccionado
+        Proceso:
+            1. Muestra un menú con opciones de materiales numeradas del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente al material.
+            3. Según el número ingresado, asigna el material correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Tipo de material====="</h3>
+
+    <label for="codigoInput">Ingrese el código del material:</label>
+    <input type="number" id="codigoInput" min="1" max="5">
+    <button onclick="seleccionarMaterial()">Seleccionar</button>
+
+    <p id="resultado"></p>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        function seleccionarMaterial() {
+            let codigo = parseInt(document.getElementById("codigoInput").value);
+            let material = "no registrado";
+
+            switch(codigo) {
+                case 1:
+                    material = "Madera";
+                    break;
+                case 2:
+                    material = "Plástico";
+                    break;
+                case 3:
+                    material = "Vidrio";
+                    break;
+                case 4:
+                    material = "Metal";
+                    break;
+                case 5:
+                    material = "Papel";
+                    break;
+            }
+
+            document.getElementById("resultado").textContent =
+                (material !== "no registrado") ? 
+                "El material seleccionado es: " + material :
+                "Código no registrado";
+        }
+    </script>
+</body>
+</html>

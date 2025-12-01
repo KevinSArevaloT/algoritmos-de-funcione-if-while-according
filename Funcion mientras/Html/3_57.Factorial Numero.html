@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo del Factorial</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para calcular el factorial de un número
+        Entradas: numero (número entero no negativo ingresado por el usuario)
+        Salidas: factorial (resultado del factorial del número ingresado)
+        Proceso:
+            1. Solicita al usuario un número entero no negativo.
+            2. Valida que el número sea mayor o igual a 0 y menor que 10.
+            3. Calcula el factorial multiplicando los números del 1 hasta el número ingresado.
+            4. Muestra el resultado del factorial.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Cálculo del factorial=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        const resultado = document.getElementById("resultado");
+        let numero = parseInt(prompt("Ingrese un número entero no negativo (0-10):"));
+
+        // Validación del número
+        while(numero < 0 || numero > 10 || isNaN(numero)){
+            numero = parseInt(prompt("Número inválido. Debe ser mayor o igual a 0 y menor o igual a 10. Ingrese nuevamente:"));
+        }
+
+        let factorial = 1;
+        for(let i = 1; i <= numero; i++){
+            factorial *= i;
+        }
+
+        let p = document.createElement("p");
+        p.textContent = "El factorial de " + numero + " es: " + factorial;
+        resultado.appendChild(p);
+    </script>
+</body>
+</html>

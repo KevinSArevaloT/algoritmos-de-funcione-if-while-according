@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulación de Cajero Automático</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa de Simulación de Cajero Automático
+        Entradas: retiro (monto que el usuario desea retirar)
+        Salidas: Mensajes indicando si el retiro fue exitoso o fondos insuficientes
+        Proceso:
+            1. Inicializa el saldo con un valor predefinido (500).
+            2. Muestra el saldo inicial.
+            3. Mientras haya saldo, solicita retiros.
+            4. Verifica si el retiro es posible y actualiza el saldo.
+            5. Termina cuando el saldo llega a 0.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Simulación de Cajero Automático=====</h3>
+    <div id="mensaje"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let saldo = 500;
+        const contenedor = document.getElementById("mensaje");
+
+        contenedor.innerHTML = "Su saldo inicial es: " + saldo + "<br>";
+
+        while (saldo > 0) {
+            let retiro = parseInt(prompt("Ingrese monto a retirar:"));
+
+            if(isNaN(retiro) || retiro <= 0){
+                alert("Monto inválido, intente nuevamente.");
+                continue;
+            }
+
+            if (retiro <= saldo) {
+                saldo -= retiro;
+                contenedor.innerHTML += "Retiro exitoso. Saldo restante: " + saldo + "<br>";
+            } else {
+                contenedor.innerHTML += "Fondos insuficientes. Su saldo es: " + saldo + "<br>";
+            }
+        }
+
+        contenedor.innerHTML += "Saldo agotado. No puede realizar más retiros.";
+    </script>
+</body>
+</html>

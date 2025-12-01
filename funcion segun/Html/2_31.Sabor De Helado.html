@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sabor de Helado</title>
+</head>
+<body>
+    <!-- 
+        Nombre: Programa para seleccionar el sabor de un helado según un número
+        Entradas:
+            num: número entero ingresado por el usuario (1-5)
+        Salidas:
+            Mensaje en pantalla indicando el sabor seleccionado
+        Proceso: 
+            1. Muestra un menú con opciones de sabores numeradas del 1 al 5.
+            2. Solicita al usuario ingresar un número correspondiente al sabor.
+            3. Según el número ingresado, asigna el sabor correspondiente.
+            4. Si el número no está entre 1 y 5, muestra un mensaje de error.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>===== Sabor de helado =====</h3>
+
+    <p>Ingrese un número del 1 al 5 para elegir su sabor:</p>
+    <ul>
+        <li>1. Vainilla</li>
+        <li>2. Chocolate</li>
+        <li>3. Fresa</li>
+        <li>4. Mango</li>
+        <li>5. Limón</li>
+    </ul>
+
+    <input type="number" id="numInput" min="1" max="5">
+    <button onclick="saborDeHelado()">Seleccionar Sabor</button>
+
+    <p id="resultado"></p>
+
+    <p>===== Fin del programa =====</p>
+
+    <script>
+        function saborDeHelado() {
+            let num = parseInt(document.getElementById("numInput").value);
+            let sabor = "";
+
+            switch(num) {
+                case 1:
+                    sabor = "Vainilla";
+                    break;
+                case 2:
+                    sabor = "Chocolate";
+                    break;
+                case 3:
+                    sabor = "Fresa";
+                    break;
+                case 4:
+                    sabor = "Mango";
+                    break;
+                case 5:
+                    sabor = "Limón";
+                    break;
+                default:
+                    sabor = "no registrado";
+            }
+
+            if(sabor !== "no registrado") {
+                document.getElementById("resultado").textContent = "El sabor elegido es: " + sabor;
+            } else {
+                document.getElementById("resultado").textContent = "Número no registrado";
+            }
+        }
+    </script>
+</body>
+</html>

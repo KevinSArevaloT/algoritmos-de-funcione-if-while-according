@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Suma hasta superar 100</title>
+</head>
+<body>
+    <!--
+        Nombre: Programa para sumar números hasta superar 100
+        Entradas: numero (número entero ingresado por el usuario)
+        Salidas: suma (suma acumulada de los números ingresados)
+        Proceso: 
+            1. Inicializa la suma en 0.
+            2. Solicita al usuario ingresar números repetidamente mientras la suma sea menor o igual a 100.
+            3. Cada número ingresado se suma a la variable acumuladora y se muestra la suma actual.
+            4. Cuando la suma supera 100, se muestra la suma final y un mensaje de aviso.
+        Autor: Kevin Arevalo
+    -->
+
+    <h3>=====Suma hasta superar 100=====</h3>
+    <div id="resultado"></div>
+    <p>=====Fin del programa=====</p>
+
+    <script>
+        let suma = 0;
+        let numero;
+        const resultado = document.getElementById("resultado");
+
+        while(suma <= 100){
+            numero = parseInt(prompt("Ingrese un número entero:"));
+            suma += numero;
+            let p = document.createElement("p");
+            p.textContent = "La suma actual es: " + suma;
+            resultado.appendChild(p);
+        }
+
+        let final = document.createElement("p");
+        final.textContent = "La suma final es: " + suma;
+        resultado.appendChild(final);
+
+        let aviso = document.createElement("p");
+        aviso.textContent = "La suma superó 100";
+        resultado.appendChild(aviso);
+    </script>
+</body>
+</html>
