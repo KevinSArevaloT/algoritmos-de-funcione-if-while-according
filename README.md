@@ -1,0 +1,1 @@
+En este repositorio adjunto todos los algoritmos de proyectos que realicé en el primer semestre de un tecnólogo en análisis y desarrollo de software. Soy consciente de que algunos pueden ser mejorados, pero tomo esto como una base para poder comparar a futuro mi avance en la codificación de algoritmos.
